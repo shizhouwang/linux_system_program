@@ -1,0 +1,17 @@
+
+GEN_EXE = svshm_xfr_writer svshm_xfr_reader
+
+GEN_EXE_OBJS = ${GEN_EXE:=.o}
+GEN_EXE_SRCS = ${GEN_EXE:=.c}
+
+EXE = ${GEN_EXE}
+
+all : ${EXE}
+
+${GEN_EXE_OBJS}:${GEN_EXE_SRCS}
+	
+allgen : ${GEN_EXE}
+
+.PHONY:clean
+clean:
+	-rm -rf ./*.o ${EXE}
