@@ -1,5 +1,5 @@
 
-GEN_EXE = t_mprotect
+GEN_EXE = t_mprotect memlock
 
 GEN_EXE_OBJS = ${GEN_EXE:=.o}
 GEN_EXE_SRCS = ${GEN_EXE:=.c}

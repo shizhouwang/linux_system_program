@@ -43,6 +43,20 @@ static void cmdLineErr(const char *format, ...)
     exit(EXIT_FAILURE);
 }
 
+static void debug(const char *format, ...)
+{
+    va_list argList;
+
+    fflush(stdout);     /* Flush any pending stdout */
+
+    fprintf(stderr, "[Debug] >> ");
+    va_start(argList, format);
+    vfprintf(stderr, format, argList);
+    va_end(argList);
+    
+    fflush(stderr);     /* In case stderr is not line-buffered */
+}
+
 static void usageErr(const char *format, ...)
 {
     va_list argList;
