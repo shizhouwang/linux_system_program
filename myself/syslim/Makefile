@@ -1,5 +1,5 @@
 
-GEN_EXE = t_sysconf
+GEN_EXE = t_sysconf t_fpathconf
 
 GEN_EXE_OBJS = ${GEN_EXE:=.o}
 GEN_EXE_SRCS = ${GEN_EXE:=.c}
