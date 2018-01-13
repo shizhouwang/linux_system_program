@@ -1,5 +1,5 @@
 
-GEN_EXE = simple_pipe pipe_ls_wc
+GEN_EXE = simple_pipe pipe_ls_wc popen_glob
 
 GEN_EXE_OBJS = ${GEN_EXE:=.o}
 GEN_EXE_SRCS = ${GEN_EXE:=.c}
