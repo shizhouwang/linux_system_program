@@ -1,5 +1,6 @@
 
-GEN_EXE = simple_pipe pipe_ls_wc popen_glob
+GEN_EXE = simple_pipe pipe_ls_wc popen_glob	\
+		  fifo_seqnum_server fifo_seqnum_client
 
 GEN_EXE_OBJS = ${GEN_EXE:=.o}
 GEN_EXE_SRCS = ${GEN_EXE:=.c}

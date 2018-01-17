@@ -30,21 +30,21 @@ int main(int argc, char *argv[])
     req.pid = (long)getpid();
     req.seqLen = (argc > 1) ? strlen(argv[1]) : 1;
 
-    clientFd = open(clientFifo, O_WRONLY);
-    if(clientFd == -1)
-        errExit("open()");
-
-    if(write(clientFd, &req, sizeof(req)) != sizeof(req))
-        errExit("write()");
-
-    serverFd = open(SERVER_FIFO, O_RDONLY);
+    serverFd = open(SERVER_FIFO, O_WRONLY);
     if(serverFd == -1)
         errExit("open()");
 
-    if(read(serverFd, &resp, sizeof(resp)) != sizeof(resp))
+    if(write(serverFd, &req, sizeof(req)) != sizeof(req))
+        errExit("write()");
+
+    clientFd = open(clientFifo, O_RDONLY);
+    if(clientFd == -1)
+        errExit("open()");
+
+    if(read(clientFd, &resp, sizeof(resp)) != sizeof(resp))
         errExit("resp()");
 
-    printf("read resonse from server\n");
+    printf("Read resonse from server, resp.seqNum=%d\n", resp.seqNum);
 
     exit(EXIT_SUCCESS);
 }
